@@ -1,0 +1,10 @@
+{
+  "opensearch": {
+    "doc_count": 3,
+    "knn_hits": 3
+  },
+  "pgvector": {
+    "doc_count": 2,
+    "knn_hits": 2
+  }
+}

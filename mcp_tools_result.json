@@ -1,0 +1,19 @@
+{
+  "evidence": "mcp-tools",
+  "append_turn_registered": true,
+  "get_session_registered": true,
+  "tools": [
+    "append_turn",
+    "compute_metric",
+    "execute_read_cypher",
+    "get_session",
+    "hybrid_graph_search",
+    "resolve_governed_metric"
+  ],
+  "session_order": [
+    1,
+    2,
+    3
+  ],
+  "session_order_correct": true
+}

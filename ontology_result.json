@@ -1,0 +1,19 @@
+{
+  "evidence": "ontology",
+  "traversal": [
+    {
+      "entity_id": "ent_atlantic_freight",
+      "class_name": "MarineCargoPolicy",
+      "applicable_metrics": [
+        "cargo_loss_ratio"
+      ]
+    },
+    {
+      "entity_id": "ent_nexus_tower",
+      "class_name": "CommercialPropertyPolicy",
+      "applicable_metrics": [
+        "solvency_ii_ratio"
+      ]
+    }
+  ]
+}

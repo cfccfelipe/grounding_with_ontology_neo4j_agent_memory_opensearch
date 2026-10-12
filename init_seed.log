@@ -1,0 +1,56 @@
+INFO:src.graph_client:Connected to Neo4j at bolt://localhost:7687
+INFO:botocore.credentials:Found credentials from IAM Role: Lab-ManagedInstanceRole
+INFO:botocore.credentials:Found credentials from IAM Role: Lab-ManagedInstanceRole
+INFO:src.opensearch_client:Connected to OpenSearch (aoss) at https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com
+INFO:src.schema_init:Executing Cypher schema: CREATE CONSTRAINT unique_class_uri IF NOT EXISTS FOR (c:OntologyClass) REQUIRE c.uri IS UNIQUE
+INFO:src.schema_init:Executing Cypher schema: CREATE CONSTRAINT unique_entity_id IF NOT EXISTS FOR (e:Entity) REQUIRE e.id IS UNIQUE
+INFO:src.schema_init:Executing Cypher schema: CREATE CONSTRAINT unique_metric_name IF NOT EXISTS FOR (m:GovernedMetric) REQUIRE m.name IS UNIQUE
+INFO:src.schema_init:Executing Cypher schema: CREATE CONSTRAINT unique_chunk_id IF NOT EXISTS FOR (k:Chunk) REQUIRE k.id IS UNIQUE
+INFO:src.schema_init:Executing Cypher schema: CREATE VECTOR INDEX governed_metric_vector_idx IF NOT EXISTS FOR (m:GovernedMetric) ON (m.embedding) OPTIONS { indexConfig: { `vector.dimensions`: 1024, `vector.similarity_function`: 'cosine' } }
+INFO:opensearch:PUT https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn [status:200 request:0.430s]
+INFO:src.opensearch_client:OpenSearch index 'coa_chunks_knn' initialized (engine=faiss).
+INFO:src.schema_init:Database schemas, indexes, and constraints fully initialized.
+INFO:src.pgvector_client:pgvector schema initialized (coa_chunks, quarterly_capital, cargo_experience).
+INFO:src.pgvector_client:Seeded quarterly_capital (1.85) and cargo_experience (0.62).
+INFO:src.memory_client:seed_turn session=s-demo turn=1 role=user
+INFO:src.memory_client:seed_turn session=s-demo turn=2 role=assistant
+INFO:src.memory_client:seed_turn session=s-demo turn=3 role=user
+INFO:src.ingestion:Ingested Ontology Class: FinancialAsset
+INFO:src.ingestion:Ingested Ontology Class: CommercialPropertyPolicy
+INFO:src.ingestion:Ingested Governed Metric: solvency_ii_ratio
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_doc [status:201 request:1.025s]
+INFO:src.ingestion:Dual-ingested chunk doc_chunk_101 to OpenSearch & Neo4j.
+WARNING:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:404 request:0.073s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:7.859s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.109s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.050s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.070s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.043s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.033s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.045s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.033s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.075s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.155s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.093s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.037s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.048s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.032s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.044s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.039s]
+INFO:opensearch:POST https://n4pn4iszp9j0j0qpv104.us-east-1.aoss.amazonaws.com:443/coa_chunks_knn/_search [status:200 request:0.039s]
+INFO:src.opensearch_client:OpenSearch: 1 docs searchable after ~54s
+
+--- 1. Initializing Neo4j schema + OpenSearch k-NN + pgvector ---
+
+--- 1b. Seeding demo conversational session (DynamoDB) ---
+Demo session 's-demo' seeded with 3 turns.
+
+--- 2. Ingesting ontology classes ---
+
+--- 3. Ingesting governed metric ---
+
+--- 4. Dual-ingesting document chunk (OpenSearch vector + Neo4j graph) ---
+
+--- 4b. Waiting for OpenSearch (Serverless) consistency ---
+
+--- Seed complete (stores initialized + demo session seeded) ---

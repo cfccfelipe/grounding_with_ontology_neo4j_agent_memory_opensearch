@@ -1,0 +1,5 @@
+{
+  "evidence": "cypher-guard",
+  "allowed_query_ok": true,
+  "blocked_query_rejected": true
+}

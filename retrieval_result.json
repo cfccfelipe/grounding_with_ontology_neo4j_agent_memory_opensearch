@@ -1,0 +1,13 @@
+{
+  "evidence": "retrieval",
+  "rrf_probe": [
+    {
+      "chunk_id": "doc_chunk_101",
+      "score": 0.09679098150806242
+    },
+    {
+      "chunk_id": "doc_chunk_practice",
+      "score": 0.03125
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "vector_stores": {
+    "opensearch": {
+      "doc_count": 3
+    },
+    "pgvector": {
+      "doc_count": 2
+    }
+  },
+  "graph": {
+    "ontology_classes": 2,
+    "governed_metrics": 1,
+    "entities": 2,
+    "instance_of_links": 0
+  }
+}
